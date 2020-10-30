@@ -15,7 +15,6 @@ use std::{
     path::PathBuf,
 };
 use thiserror::Error;
-use valico::json_schema::ValidationState;
 
 /// A `compose_yml` result.
 pub type Result<T, E = Error> = std::result::Result<T, E>;
@@ -103,8 +102,11 @@ pub enum Error {
 }
 
 impl Error {
+    #[cfg(feature = "json_validation")]
     /// Create an error reporting a schema validation error.
-    pub(crate) fn does_not_conform_to_schema(state: ValidationState) -> Error {
+    pub(crate) fn does_not_conform_to_schema(
+        state: valico::json_schema::ValidationState,
+    ) -> Error {
         assert!(!state.is_strictly_valid());
         let mut out: Vec<u8> = vec![];
         for err in &state.errors {

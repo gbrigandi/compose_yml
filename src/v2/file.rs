@@ -181,6 +181,7 @@ fn file_allows_null_volumes_and_networks() {
     assert_eq!(file.networks.len(), 2);
 }
 
+#[cfg(feature = "json_validation")]
 #[test]
 fn file_checks_version_number() {
     let yaml = r#"---

@@ -10,6 +10,10 @@ license = "CC0-1.0 AND Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/emk/compose_yml"
 
+[features]
+json_validation = []
+default = ["json_validation"]
+
 [dev-dependencies]
 anyhow = "1.0.28"
 
