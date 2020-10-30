@@ -54,7 +54,7 @@ lazy_static! {
     load_schema_json(COMPOSE_2_4_SCHEMA_STR);
 }
 
-#[cfg(feature = "json_validation")]
+#[cfg(feature = "valico")]
 /// Validate a `File` against the official JSON schema provided by
 /// `docker-compose`.
 pub fn validate_file(file: &File) -> Result<()> {
@@ -88,7 +88,7 @@ pub fn validate_file(file: &File) -> Result<()> {
     }
 }
 
-#[cfg(not(feature = "json_validation"))]
+#[cfg(not(feature = "valico"))]
 /// Validate a `File` against the official JSON schema provided by
 /// `docker-compose`.
 pub fn validate_file(file: &File) -> Result<()> {

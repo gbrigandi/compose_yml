@@ -102,7 +102,7 @@ pub enum Error {
 }
 
 impl Error {
-    #[cfg(feature = "json_validation")]
+    #[cfg(feature = "valico")]
     /// Create an error reporting a schema validation error.
     pub(crate) fn does_not_conform_to_schema(
         state: valico::json_schema::ValidationState,
